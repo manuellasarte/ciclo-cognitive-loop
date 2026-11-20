@@ -44,3 +44,11 @@ Each entry: Date | Phase | What was done | Result | Decision
 - Memory is used: planner prompt includes "Memory suggests: ..." from cycle 5 onward.
 - DIAGNOSTIC: environment is degenerate after goal (all actions from 'room' return to 'room'). Not a system failure, but future phases should add a post-goal state.
 - Decision: Phase 3 closed. All three metrics (PED pending formalization, MNR non-degenerate, ETR non-degenerate) now have evidence. Proceed to Phase 4: formalize PED and run a longer stability test (72h) if hardware allows.
+
+### 2026-11-20 | Phase 4A (complete)
+- phase4_ped.py: formalizes Plan-Execution Divergence. Hub can override planner if planner's last action was ineffective and executor disagrees.
+- First run: PED=0.000 always (override condition too narrow: required exact repetition).
+- Patched: override triggers when last action was ineffective (state unchanged), not when repeated.
+- Second run: 5/5 valid, goal at cycle 4, PED avg=0.200 (range 0.0-1.0), resolutions: planner_only=4, override_executor=1.
+- PED criterion (non-degenerate, intermediate regime) is MET.
+- Decision: Phase 4A closed. All three metrics (PED, MNR, ETR) now have non-degenerate evidence. Proceed to Phase 4B: 72h stability test in background.
