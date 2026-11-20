@@ -27,3 +27,12 @@ Each entry: Date | Phase | What was done | Result | Decision
 - Result: 4/4 valid actions (100%), goal reached at cycle 3, latency 1.7-2.7s.
 - Log: logs/phase1_run_v2.jsonl
 - Decision: Phase 1 closed. Proceed to Phase 2 (metacognitive workspace).
+
+### 2026-11-20 | Phase 2 (complete, with diagnostic note)
+- phase2_workspace.py v1: tension=0.00 always (degenerate). Sub-agents had identical prompts.
+- phase2_workspace.py v2: asymmetric information (planner proposes, critic vetoes, executor independent).
+- 30-cycle run: 30/30 valid actions, goal reached at cycle 1, tension varies 0.50-1.00 (non-degenerate).
+- CRITICAL FINDING: critic vetoes 30/30 times, even when planner and executor agree and action is correct.
+- Hub resolves via critic_veto_executor in all cycles, but system remains stable (executor compensates).
+- ETR criterion (non-trivial resolution) is MET: tension does not collapse to a fixed value.
+- Decision: Phase 2 closed with diagnostic note. Critic miscalibration to be addressed in Phase 3 (memory) or via prompt adjustment if it persists.
