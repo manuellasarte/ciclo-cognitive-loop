@@ -20,3 +20,10 @@ Each entry: Date | Phase | What was done | Result | Decision
 - Initial load time: 16.5s.
 - Result: L1 (reasoning core) validated. Hardware sufficient for Phase 1.
 - Decision: proceed to Phase 1 (minimal loop implementation).
+
+### 2026-11-20 | Phase 1 (complete)
+- phase1_loop.py v1 executed: 20/20 valid actions, but agent stuck in door_open (no goal signal).
+- phase1_loop.py v2 executed: added goal ("reach room") + progress signal (last 5 actions, step count).
+- Result: 4/4 valid actions (100%), goal reached at cycle 3, latency 1.7-2.7s.
+- Log: logs/phase1_run_v2.jsonl
+- Decision: Phase 1 closed. Proceed to Phase 2 (metacognitive workspace).

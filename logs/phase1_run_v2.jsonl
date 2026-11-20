@@ -1,0 +1,4 @@
+{"timestamp": "2026-11-20T20:16:48.926456+00:00", "cycle": 0, "state": "door_closed", "raw_response": "OPEN_DOOR", "action": "OPEN_DOOR", "valid": true, "next_state": "door_open", "goal_reached": false, "latency_s": 2.67}
+{"timestamp": "2026-11-20T20:16:50.976375+00:00", "cycle": 1, "state": "door_open", "raw_response": "WAIT", "action": "WAIT", "valid": true, "next_state": "door_open", "goal_reached": false, "latency_s": 2.05}
+{"timestamp": "2026-11-20T20:16:52.703922+00:00", "cycle": 2, "state": "door_open", "raw_response": "WAIT", "action": "WAIT", "valid": true, "next_state": "door_open", "goal_reached": false, "latency_s": 1.73}
+{"timestamp": "2026-11-20T20:16:54.753929+00:00", "cycle": 3, "state": "door_open", "raw_response": "MOVE_FORWARD", "action": "MOVE_FORWARD", "valid": true, "next_state": "room", "goal_reached": true, "latency_s": 2.05}
