@@ -36,3 +36,11 @@ Each entry: Date | Phase | What was done | Result | Decision
 - Hub resolves via critic_veto_executor in all cycles, but system remains stable (executor compensates).
 - ETR criterion (non-trivial resolution) is MET: tension does not collapse to a fixed value.
 - Decision: Phase 2 closed with diagnostic note. Critic miscalibration to be addressed in Phase 3 (memory) or via prompt adjustment if it persists.
+
+### 2026-11-20 | Phase 3 (complete)
+- phase3_memory.py: episodic memory (every cycle), procedural memory (consolidated every 5 cycles), planner uses memory hints.
+- 30-cycle run: 30/30 valid, goal at cycle 1, MNR=0.50 (3 novelty events / 6 consolidations), procedural_size stabilized at 3.
+- MNR criterion (intermediate regime, not 0 or 1) is MET.
+- Memory is used: planner prompt includes "Memory suggests: ..." from cycle 5 onward.
+- DIAGNOSTIC: environment is degenerate after goal (all actions from 'room' return to 'room'). Not a system failure, but future phases should add a post-goal state.
+- Decision: Phase 3 closed. All three metrics (PED pending formalization, MNR non-degenerate, ETR non-degenerate) now have evidence. Proceed to Phase 4: formalize PED and run a longer stability test (72h) if hardware allows.
